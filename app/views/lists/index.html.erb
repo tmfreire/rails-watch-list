@@ -3,7 +3,10 @@
 <% @lists.each do |list|%>
   <li>
     <%= list.name %>
-    <td><%= link_to 'See', list %></td>
+    <% if list.photo.attached? %>
+      <%= cl_image_tag list.photo.key, height: 150%>
+    <% end %>
+    <p><%= link_to 'See', list %></p>
   </li>
 <% end %>
 
